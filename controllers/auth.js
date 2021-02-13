@@ -4,15 +4,6 @@ const createUser = (req, res) => {
 
     const {name, email, password} = req.body;
 
-    const error = validationResult(req);
-
-    if( !error.isEmpty()){
-        return res.status(400).json({
-            ok: false,
-            error: error.mapped()
-        })
-    }
-
     if( name.length < 3 ){
         return res.status(400).json({
             ok: false,
